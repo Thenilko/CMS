@@ -1,0 +1,33 @@
+version: '3'
+services:
+  php:
+    container_name: "php"
+    image: "php:7.4-cli"
+    restart: always
+    ports:
+      - "8080:8080"
+    command: php -S 0.0.0.0:8080
+    volumes:
+      - .:/var/www
+    hostname: "www"
+    working_dir: "/var/www"
+  db:
+    container_name: db
+    platform: linux/x86_64
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: VA94t3ue8YqT
+      MYSQL_DATABASE: cms-db
+      MYSQL_USER: cms-user
+      MYSQL_PASSWORD: xur_a}a5`jkPhWq
+    ports:
+      - "9906:3306"
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "4036:80"
+    environment:
+      - PMA_ARBITRARY=1
