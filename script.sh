@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/expect
 #cd $HOME
 #git config --global user.email "netgames@abv.bg"
 #git config --global user.name "Thenilko"
@@ -8,6 +8,6 @@ git add .
 git commit -m 'Auto commit and push'
 git push origin main
 
-#!/usr/bin/expect
+
 expect "Username for 'https://github.com': "
 send "Thenilko"
