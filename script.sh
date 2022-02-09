@@ -8,5 +8,6 @@ git add .
 git commit -m 'Auto commit and push'
 git push origin main
 
+#!/usr/bin/expect
 expect "Username for 'https://github.com': "
 send "Thenilko"
