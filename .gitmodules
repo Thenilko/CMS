@@ -1,0 +1,3 @@
+[submodule "static/static/Static"]
+	path = static/static/Static
+	url = https://github.com/Thenilko/Static.git
