@@ -1,7 +1,4 @@
-#!/usr/bin/expect
-#cd $HOME
-#git config --global user.email "netgames@abv.bg"
-#git config --global user.name "Thenilko"
+#!/usr/bin
 source ./.env
 git remote set-url origin https://$accessToken@github.com/Thenilko/CMS.git
 git status
