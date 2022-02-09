@@ -9,5 +9,5 @@ git commit -m 'Auto commit and push'
 git push origin main
 
 
-expect "Username for 'https://github.com': "
+expect "Username for 'https://github.com':"
 send "Thenilko"
