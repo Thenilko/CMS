@@ -58,6 +58,7 @@ final class StaticSiteGeneratorCommand extends Command
             $generator->generateContent();
         } catch (\Exception $e) {
             $output->writeln("Error" . $e->getMessage());
+            return;
         }
 
         $output->writeln('Done! The site is generated!');
