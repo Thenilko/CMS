@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page System{% endblock %}
+
+{% block body %}
+    <h1>System</h1>
+    <div>
+        <a href="{{ path('system_build') }}" class="generate-site">Generate static site</a>
+    </div>
+    <div>
+        <a href="https://dazzling-williams-8da7e2.netlify.app/" class="site-link" style="display: none" target="_blank">Preview the site at Netlify!</a>
+    </div>
+
+    <script>
+        $('.generate-site').click(function(e){
+            e.preventDefault();
+            $.ajax({
+                url: "{{ path('system_build') }}",
+                context: document.body,
+                method: 'POST'
+            }).done(function() {
+                $('.site-link').show();
+            });
+        });
+    </script>
+{% endblock %}
+
+

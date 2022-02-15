@@ -1,0 +1,77 @@
+{{ form_start(form) }}
+
+<div class="form-group">
+    {{ form_label(form.title, 'Page title:') }}
+    {{ form_widget(form.title) }}
+</div>
+<div class="form-group">
+    <div style="display: none">{{ form_widget(form.metadata)}}</div>
+    {{ form_label(form.metadata, 'Matadata:', {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12' }}) }}
+    <div class="col-md-6 col-sm-6 col-sx-12">
+        <ul id="metadata-list"
+            data-prototype="{{ form_widget(form.metadata.vars.prototype)|e }}"
+            data-vars-id="{{ form.metadata.vars.id }}"
+            data-vars-full-name="{{ form.metadata.vars.full_name }}"
+            data-widget-tags="{{ '<li></li>'|e }}"
+            data-widget-counter="{{ form.metadata|length }}" style="list-style: none; padding-inline-start: 0px">
+            {% for metadataField in form.metadata %}
+                <li>
+                    <label>{{ metadataField.vars.name | title }}: </label>
+                    <p>{{ metadataField.vars.value }}</p>
+                    {{ form_errors(metadataField) }}
+                    {{ form_widget(metadataField) }}
+
+                    <button type="button"
+                            class="remove-collection-element-widget"
+                    >Remove param</button>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <button type="button"
+                class="add-another-collection-widget"
+                data-list-selector="#metadata-list">Add another metadata</button>
+        {% if form.metadata.vars.errors|length %}
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                {{ form_errors(form.metadata) }}
+            </div>
+        {% endif %}
+    </div>
+
+</div>
+    {{ form_rest(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+<script>
+    jQuery(document).ready(function () {
+        jQuery('.add-another-collection-widget').click(function (e) {
+            let list = jQuery(jQuery(this).attr('data-list-selector'));
+            let newElem = "<input type='text' class='metadata-key' placeholder='Metadata name'/> <input type='text' class='metadata-value' placeholder='Metadata value'/> <input type='hidden' class='final-input'/>";
+            list.append('<li>'+ newElem +'</li>');
+        });
+
+        jQuery('.remove-collection-element-widget').click(function (e) {
+            jQuery(this).parent().remove();
+        });
+
+        $(document).on('keyup', "#metadata-list li input.metadata-key",function () {
+            let value = $(this).val();
+            let list = $(this).parent().parent();
+            let widgetId = list.data('vars-id');
+            let widgetFullName = list.data('vars-full-name');
+
+            let formattedKey = value.split(' ').join('_')
+            $(this).parent().find('input.final-input').attr('name', widgetFullName + '[' + formattedKey + ']');
+            $(this).parent().find('input.final-input').attr('id', widgetId + '_' + formattedKey);
+        });
+
+        $(document).on('keyup', "#metadata-list li input.metadata-value",function () {
+            let value = $(this).val();
+            $(this).parent().find('input.final-input').val(value);
+        });
+        // $("#castalis_pls_brulafine_corebundle_mailing_scenario_discountCode").chosen()
+    });
+
+</script>

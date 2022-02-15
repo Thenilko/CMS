@@ -1,0 +1,9 @@
+<ul>
+    {% for page in pages %}
+            {% if page.isHomePage %}
+                    <li><a href="{{ '../' }}">{{ page.title }}</a></li>
+            {% else %}
+                    <li><a href="{{ '../pages/page-'~ page.id ~'.html' }}">{{ page.title }}</a></li>
+            {% endif %}
+    {% endfor %}
+</ul>
