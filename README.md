@@ -13,4 +13,3 @@ Normally it should create the containers, and you will be able to see it on: htt
 3. At the moment the script to upload the changes to the repo does not work when is executed from the Symfony Process component. If it executed manually "sh script.sh" -> it works. For some reasons it returns "Permissions denied". All seems ok with the permissions of the file. I am pretty sure its because of the combination of Mac and Docker.
 4. For the uploader i did not spend a lot of time I just wanted to have working File Uploader.
 5. Because I am with MAC, I had some problems with dockerizing the project.
-6. sdf
