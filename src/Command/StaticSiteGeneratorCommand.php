@@ -70,7 +70,7 @@ final class StaticSiteGeneratorCommand extends Command
         $process->setWorkingDirectory($cwd);
         $process->run();
 
-        // executes after the command finishes
+        // checking for errors.
         if (!$process->isSuccessful()) {
             throw new ProcessFailedException($process);
         }

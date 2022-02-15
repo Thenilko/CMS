@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7dd41c1-ddd1-4e85-aa45-a74e7a71d02e" name="Changes" comment="Commit the project">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Static" beforeDir="false" afterPath="$PROJECT_DIR$/public/Static" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/ca/ca3313a42823ec7ea41bfab81d55c5ec80642b4351ca53de25ec1f42340823b8.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/ca/ca3313a42823ec7ea41bfab81d55c5ec80642b4351ca53de25ec1f42340823b8.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
